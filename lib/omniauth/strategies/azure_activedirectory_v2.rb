@@ -50,12 +50,12 @@ module OmniAuth
         options.custom_policy =
           provider.respond_to?(:custom_policy) ? provider.custom_policy : nil
 
-        options.client_options.authorize_url = "#{options.base_azure_url}/#{options.tenant_id}/oauth2/v2.0/authorize"
+        options.client_options.authorize_url = "#{options.base_azure_url}/#{options.tenant_id}/oauth2/authorize"
         options.client_options.token_url =
           if options.custom_policy
-            "#{options.base_azure_url}/#{options.tenant_id}/#{options.custom_policy}/oauth2/v2.0/token"
+            "#{options.base_azure_url}/#{options.tenant_id}/#{options.custom_policy}/oauth2/token"
           else
-            "#{options.base_azure_url}/#{options.tenant_id}/oauth2/v2.0/token"
+            "#{options.base_azure_url}/#{options.tenant_id}/oauth2/token"
           end
 
         super
